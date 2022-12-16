@@ -62,10 +62,10 @@ async function connect(){
 		const currentChainId  = await web3.eth.getChainId();
 
 		// Change chain if not Goerli
-		if(currentChainId != 5) {
+		if(currentChainId != 1) {
 			await window.ethereum.request({
 				method: "wallet_switchEthereumChain",
-				params: [{ chainId: "0x5" }] // number 5 in hex is 0x5
+				params: [{ chainId: "0x1" }] // number 5 in hex is 0x5
 			});
 		}
 
