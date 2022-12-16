@@ -135,7 +135,7 @@ function enableProposals(){
 function showProposeCollapse(address){
 	proposeCollapse.classList.add("show");
 	proposedToSpan.innerText = address
-	proposeUrlInput.value = "http://127.0.0.1:5500/?sayYesTo=" + account;
+	proposeUrlInput.value = "https://morenicogs.github.io/vows/?sayYesTo=" + account;
 }
 
 async function getProposal(address){
