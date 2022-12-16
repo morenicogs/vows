@@ -1,0 +1,43 @@
+:root {
+	--color-orange: rgb(255, 227, 211);
+	--color-lightblue: rgb(204, 252, 255);
+	--color-lighterblue: rgb(225, 254, 250);
+	--color-pink: rgb(225, 229, 249);
+	--color-purple:rgb(232, 232, 255);
+	--color-dark-purple: rgb(148, 84, 250);
+	--color-darker-purple: rgb(87, 30, 196);
+	--color-light-purple: #AB84F7;
+}
+
+.btn-primary{
+	background-color: var(--color-dark-purple);
+	border-color: var(--color-dark-purple);
+	border-radius: 0px;
+}
+
+.btn-primary:hover{
+	background-color: var(--color-darker-purple);
+	border-color: var(--color-dark-purple);
+}
+
+:not(.btn-check)+.btn:active{
+	background-color: var(--color-darker-purple);
+	border-color: var(--color-dark-purple);
+}
+
+fieldset:disabled .btn{
+	background-color: var(--color-light-purple);
+	border-color: var(--color-dark-purple);
+}
+
+.form-control:disabled{
+	background-color: var(--color-purple);
+}
+
+.form-control:focus{
+	box-shadow: 0 0 0 0.25rem rgba(176, 129, 250, 0.401);
+}
+
+.text-purple{
+color: var(--color-darker-purple);
+}
