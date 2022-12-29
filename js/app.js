@@ -62,10 +62,10 @@ async function connect(){
 		const currentChainId  = await web3.eth.getChainId();
 
 		// Change chain if not Goerli
-		if(currentChainId != 1) {
+		if(currentChainId != vows.chainId) {
 			await window.ethereum.request({
 				method: "wallet_switchEthereumChain",
-				params: [{ chainId: "0x1" }] // number 5 in hex is 0x5
+				params: [{ chainId: vows.chain }] // number 5 in hex is 0x5
 			});
 		}
 
@@ -90,7 +90,7 @@ async function connect(){
 async function propose(){
 	await connect();
 	// if(!isMarried){
-		contract = new web3.eth.Contract(vowsABI, vowsContract)
+		contract = new web3.eth.Contract(vows.ABI, vows.contract)
 		contract.methods.propose(proposeInput.value).send({from: account})
 	// }
 
@@ -100,7 +100,7 @@ async function propose(){
 async function accept(){
 	await connect();
 	// if(!isMarried){
-		contract = new web3.eth.Contract(vowsABI, vowsContract)
+		contract = new web3.eth.Contract(vows.ABI, vows.contract)
 		contract.methods.accept(acceptInput.value).send({from: account}, (err, result) => {
 			console.log(result, err);
 		})
@@ -110,7 +110,7 @@ async function accept(){
 async function annul(){
 	await connect();
 	// if(isMarried){
-		contract = new web3.eth.Contract(vowsABI, vowsContract)
+		contract = new web3.eth.Contract(vows.ABI, vows.contract)
 		contract.methods.annul().send({from: account}, (err, result) => {
 			console.log(result, err);
 		})
@@ -139,7 +139,7 @@ function showProposeCollapse(address){
 }
 
 async function getProposal(address){
-	contract = new web3.eth.Contract(vowsABI, vowsContract);
+	contract = new web3.eth.Contract(vows.ABI, vows.contract);
 	const proposedTo = await contract.methods.proposals(address).call()
 	return proposedTo
 }
@@ -182,7 +182,7 @@ async function checkUrlParams(){
 // *******************
 
 async function isMarried() {
-	contract = new web3.eth.Contract(vowsABI, vowsContract)
+	contract = new web3.eth.Contract(vows.ABI, vows.contract)
 	const balance = Number(await contract.methods.balanceOf(account).call())
 	
 	if(balance){
@@ -219,7 +219,7 @@ function enableAnnulment(){
 
 
 async function getMarriage(address) {
-	contract = new web3.eth.Contract(vowsABI, vowsContract)
+	contract = new web3.eth.Contract(vows.ABI, vows.contract)
 	// Get total Supply
 	const totalSupply = await contract.methods.totalSupply().call();
 
@@ -237,7 +237,7 @@ async function getMarriage(address) {
 
 async function getMetadata(address, marriageIndex){
 	
-	contract = new web3.eth.Contract(vowsABI, vowsContract)
+	contract = new web3.eth.Contract(vows.ABI, vows.contract)
 	// First get the token ID for the marriage index
 	const tokenId = await contract.methods.tokenOfOwnerByIndex(address, marriageIndex).call();
 	const tokenURI = await contract.methods.tokenURI(tokenId).call()

@@ -41,3 +41,36 @@ fieldset:disabled .btn{
 .text-purple{
 color: var(--color-darker-purple);
 }
+
+a {
+	color: var(--color-darker-purple);
+}
+
+.border-purple {
+	border-color: var(--color-darker-purple);
+	border-radius: 0;
+}
+.card .card-title {
+	color: var(--color-darker-purple);
+}
+.card-text strong {
+	color: var(--color-darker-purple);
+}
+
+.btn-check:active {
+	background-color: var(--color-dark-purple);
+	border-color: var(--color-dark-purple);
+	border-radius: 0px;
+}
+
+.btn-check {
+	background-color: var(--color-dark-purple);
+	border-color: var(--color-dark-purple);
+	border-radius: 0px;
+}
+
+.btn-outline-primary{
+	
+	border-color: var(--color-dark-purple);
+	border-radius: 0px;
+}
